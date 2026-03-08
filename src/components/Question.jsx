@@ -26,49 +26,51 @@ const Question = ({ onYes }) => {
   };
 
   return (
-    <div className="flex-1 flex items-center justify-center relative px-10 py-20">
+    <div className="flex-1 flex items-center justify-center relative px-4 py-10 md:px-10 md:py-20 overflow-hidden">
 
       {/* Question Card */}
-      <div className="relative bg-white/90 backdrop-blur-xl rounded-[3rem] p-14 shadow-2xl text-center max-w-xl w-full">
+      <div className="relative bg-white/92 backdrop-blur-xl rounded-card md:rounded-card-lg p-6 md:p-14 shadow-card border border-pink-200/10 text-center max-w-xl w-full">
 
-        <h2 className="text-4xl font-semibold text-gray-700 mb-14">
+        <h2 className="text-[1.0625rem] sm:text-2xl md:text-4xl font-semibold text-text-primary mb-8 md:mb-12 leading-relaxed tracking-tight">
         Alright, I’ll give you one chance to escape… press ‘Leave me alone’. But if you press other button, it means you’re mine.
         </h2>
 
-        {/* Button Area */}
-        <div className="relative h-40 flex items-center justify-center gap-10">
+        {/* Button Area - taller on mobile for touch targets */}
+        <div className="relative min-h-[140px] md:h-40 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-10">
 
           {/* YES BUTTON (stable) */}
           <button
             onClick={onYes}
-            className="px-12 py-4 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-full text-2xl font-medium shadow-lg hover:scale-105 transition-all duration-300 z-10"
+            className="px-8 py-3.5 md:px-10 md:py-4 bg-gradient-to-br from-[#34d399] to-accent-emerald text-white rounded-full text-[1.0625rem] md:text-xl font-semibold shadow-btn-emerald hover:shadow-btn-emerald-hover hover:scale-[1.03] active:scale-[0.98] transition-all duration-smooth ease-smooth z-10 min-h-[48px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-purple focus-visible:outline-offset-2"
           >
             okay i am yours❤️
           </button>
 
-          {/* NO BUTTON — initial side-by-side, moves away on hover */}
+          {/* NO BUTTON — initial side-by-side, moves away on hover/touch */}
           {noClicks === 0 && (
             <span
               role="button"
               onMouseEnter={handleNoHover}
-              className="px-12 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full text-2xl font-medium shadow-lg transition-all duration-300 cursor-default select-none"
+              onTouchStart={handleNoHover}
+              className="px-8 py-3.5 md:px-10 md:py-4 bg-gradient-to-br from-accent-pink to-accent-rose text-white rounded-full text-[1.0625rem] md:text-xl font-semibold shadow-btn-pink cursor-default select-none min-h-[48px] inline-flex items-center justify-center"
             >
               Leave Me Alone 😤
             </span>
           )}
 
-          {/* NO BUTTON — floating version, moves away on hover */}
+          {/* NO BUTTON — floating version, moves away on hover/touch */}
           {noClicks > 0 && floating && (
             <span
               role="button"
               onMouseEnter={handleNoHover}
+              onTouchStart={handleNoHover}
               style={{
                 position: "absolute",
                 top: pos.top,
                 left: pos.left,
                 transform: "translate(-50%, -50%)",
               }}
-              className="px-12 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full text-2xl font-medium shadow-lg transition-all duration-300 cursor-default select-none"
+              className="px-8 py-3.5 md:px-10 md:py-4 bg-gradient-to-br from-accent-pink to-accent-rose text-white rounded-full text-[1.0625rem] md:text-xl font-semibold shadow-btn-pink cursor-default select-none min-h-[48px] inline-flex items-center justify-center touch-none"
             >
               Leave Me Alone 😤
             </span>

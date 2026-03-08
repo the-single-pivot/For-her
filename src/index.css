@@ -2,20 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
 @keyframes floatUp {
   0% {
     transform: translateY(0) scale(1);
     opacity: 0;
   }
-  10% {
-    opacity: 0.6;
+  8% {
+    opacity: 0.5;
   }
   50% {
-    opacity: 0.8;
+    opacity: 0.6;
   }
   100% {
-    transform: translateY(-120vh) scale(1.2);
+    transform: translateY(-120vh) scale(1.15);
     opacity: 0;
+  }
+}
+
+@keyframes fadeScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -23,5 +40,9 @@
   animation-name: floatUp;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  opacity: 0.5;
+  opacity: 0.4;
+}
+
+.animate-fade-scale-in {
+  animation: fadeScaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

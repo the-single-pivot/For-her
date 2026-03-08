@@ -18,7 +18,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-200 via-purple-200 to-pink-300 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#fdf2f8] via-[#f5e6ff] to-[#fce7f3] relative overflow-hidden text-text-primary">
       {/* live background hearts/candy/teddy */}
       <FloatingElements />
 

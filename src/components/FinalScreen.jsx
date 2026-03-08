@@ -10,32 +10,32 @@ const FinalScreen = ({ onReplay }) => {
   }, []);
 
   return (
-    <div className="flex-1 flex items-center justify-center relative px-10 py-20">
+    <div className="flex-1 flex items-center justify-center relative px-4 py-10 md:px-10 md:py-20 overflow-auto">
       <div
-        className={`bg-white/90 backdrop-blur-xl rounded-[3rem] p-14 shadow-2xl text-center max-w-2xl w-full transition-all duration-700 ${
-          show ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        className={`bg-white/92 backdrop-blur-xl rounded-card md:rounded-card-lg p-6 md:p-14 shadow-card border border-pink-200/10 text-center max-w-2xl w-full ${
+          show ? "animate-fade-scale-in" : "opacity-0 scale-95"
         }`}
       >
         {/* Celebration Image */}
         <img
           src={celebration}
           alt="celebration"
-          className="w-full max-h-[300px] object-contain mb-10"
+          className="w-full max-h-[200px] md:max-h-[300px] object-contain mb-6 md:mb-10"
         />
 
         {/* Final Message */}
-        <h1 className="text-4xl font-semibold text-gray-700 mb-6">
+        <h1 className="text-xl sm:text-2xl md:text-4xl font-semibold text-text-primary mb-4 md:mb-6 tracking-tight">
         i knew you will choose me 🥹💖
         </h1>
 
-        <p className="text-2xl text-rose-600 mb-10">
+        <p className="text-lg md:text-2xl text-accent-rose font-medium mb-8 md:mb-10">
           Thanks for tolerating my cringe❤️
         </p>
 
         {/* Replay */}
         <button
           onClick={onReplay}
-          className="px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-xl font-medium shadow-lg hover:scale-105 transition-all duration-300"
+          className="px-8 py-3.5 md:px-10 md:py-4 bg-gradient-to-br from-accent-purple to-accent-pink text-white rounded-full text-[1.0625rem] md:text-xl font-semibold shadow-btn-purple hover:shadow-btn-purple-hover hover:scale-[1.03] active:scale-[0.98] transition-all duration-smooth ease-smooth min-h-[48px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-purple focus-visible:outline-offset-2"
         >
           Replay 🔁
         </button>
