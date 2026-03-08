@@ -1,30 +1,36 @@
+import { useMemo } from "react";
+
 const elements = ["💗", "🍬", "🧸", "💖", "✨"];
 
 const FloatingElements = () => {
+  const items = useMemo(
+    () =>
+      Array.from({ length: 20 }, () => ({
+        left: Math.random() * 100,
+        delay: Math.random() * 10,
+        size: Math.random() * 20 + 16,
+        duration: Math.random() * 10 + 15,
+        emoji: elements[Math.floor(Math.random() * elements.length)],
+      })),
+    []
+  );
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {Array.from({ length: 20 }).map((_, i) => {
-        const left = Math.random() * 100;
-        const delay = Math.random() * 10;
-        const size = Math.random() * 20 + 16;
-        const duration = Math.random() * 10 + 15;
-        const emoji = elements[Math.floor(Math.random() * elements.length)];
-
-        return (
-          <span
-            key={i}
-            className="floating-element absolute bottom-[-40px]"
-            style={{
-              left: `${left}%`,
-              animationDelay: `${delay}s`,
-              animationDuration: `${duration}s`,
-              fontSize: `${size}px`,
-            }}
-          >
-            {emoji}
-          </span>
-        );
-      })}
+      {items.map((item, i) => (
+        <span
+          key={i}
+          className="floating-element absolute bottom-[-40px]"
+          style={{
+            left: `${item.left}%`,
+            animationDelay: `${item.delay}s`,
+            animationDuration: `${item.duration}s`,
+            fontSize: `${item.size}px`,
+          }}
+        >
+          {item.emoji}
+        </span>
+      ))}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-// export default FinalScreen;
 import { useEffect, useState } from "react";
 import celebration from "../assets/images/celebration.png";
 
@@ -26,11 +25,11 @@ const FinalScreen = ({ onReplay }) => {
 
         {/* Final Message */}
         <h1 className="text-4xl font-semibold text-gray-700 mb-6">
-          Mujhe pata tha tum zyada der naraz nahi reh sakti 🥹💖
+        i knew you will choose me 🥹💖
         </h1>
 
         <p className="text-2xl text-rose-600 mb-10">
-          Ab bas smiles hi smiles 🎉❤️
+          Thanks for tolerating my cringe❤️
         </p>
 
         {/* Replay */}
